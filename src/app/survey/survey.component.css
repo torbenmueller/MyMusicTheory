@@ -1,0 +1,24 @@
+h1 {
+	font-size: 2rem;
+	color: #616161;
+}
+
+h2 {
+	font-size: 1.5rem;
+	color: #616161;
+}
+
+p {
+	font-size: 1.2rem;
+	color: #616161;
+}
+
+.card-header {
+	font-size: 1.3rem;
+	color: #616161;
+	background-color: #eee;
+}
+
+.hint {
+	font-size: 1rem;
+}

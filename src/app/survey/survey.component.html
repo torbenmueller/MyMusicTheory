@@ -1,0 +1,79 @@
+<h1>Welcome to My Music Theory!</h1>
+<p>The new page about music theory is still under construction. In order to be able to respond as well as possible to
+	the wishes of the users, we make a small survey here in advance. The data is collected completely anonymously, no
+	information about the user is stored.</p>
+<hr>
+<h2>Survey</h2>
+<div class="row">
+	<div class="col-6">
+		<div class="card">
+			<div class="card-header">
+				Which themes are particularly important to you?
+			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="notation" (click)="check('notation')">
+						<label class="form-check-label" for="notation">
+							Notation
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="rhythmAndMeter" (click)="check('rhythmAndMeter')">
+						<label class="form-check-label" for="rhythmAndMeter">
+							Rhythm and meter
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="scalesAndKeySignatures" (click)="check('scalesAndKeySignatures')">
+						<label class="form-check-label" for="scalesAndKeySignatures">
+							Scales and key signatures
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="intervals" (click)="check('intervals')">
+						<label class="form-check-label" for="intervals">
+							Intervals
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="chords" (click)="check('chords')">
+						<label class="form-check-label" for="chords">
+							Chords
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="chordProgressions" (click)="check('chordProgressions')">
+						<label class="form-check-label" for="chordProgressions">
+							Chord progressions
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="modulation" (click)="check('modulation')">
+						<label class="form-check-label" for="modulation">
+							Modulation
+						</label>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<p class="hint">Choose up to three topics.</p>
+		<button type="button" class="btn btn-success float-end mt-2" [disabled]="checkCounter < 1" (click)="submitSurvey()">Submit</button>
+	</div>
+</div>
+<!-- <hr>
+<h2>Results</h2>
+<div class="row">
+</div> -->
