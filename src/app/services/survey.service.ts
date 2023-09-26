@@ -10,10 +10,20 @@ const BACKEND_URL = environment.apiUrl + "/survey";
 })
 export class SurveyService {
 
+  ip: string = '';
+
   constructor(
     private http: HttpClient,
     private toastr: ToastrService
   ) { }
+
+  getIP() {
+		this.http.get<{ip: any}>(BACKEND_URL + '/ip')
+			.subscribe((data) => {
+				this.ip = data.ip;
+        console.log("IP", this.ip);
+			});
+	}
 
   saveSurvey(survey: string[]) {
     const post: object = {

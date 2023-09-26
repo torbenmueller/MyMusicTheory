@@ -26,6 +26,7 @@ export class SurveyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.surveyService.getIP();
   }
 
   check(id: string) {

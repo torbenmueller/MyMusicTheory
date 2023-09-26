@@ -5,7 +5,8 @@ h1 {
 
 h2 {
 	font-size: 1.5rem;
-	color: #616161;
+	color: #198754;
+	/* color: #616161; */
 }
 
 p {
@@ -16,6 +17,13 @@ p {
 .card-header {
 	font-size: 1.3rem;
 	color: #616161;
+}
+
+.survey {
+	background-color: #E6FFF3;
+}
+
+.results {
 	background-color: #eee;
 }
 

@@ -1,9 +1,15 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+// const port = 3000;
 const mongoose = require('mongoose');
 
 const surveyRoutes = require('./routes/survey');
+
+let port = 3000;
+
+if (process.env.PORT) {
+	port = process.env.PORT;
+}
 
 mongoose.connect('mongodb+srv://new-user:' + process.env.MONGO_ATLAS_PW + '@cluster0.76fy5.mongodb.net/musicTheoryDB?retryWrites=true&w=majority', { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
@@ -24,6 +30,17 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/survey', surveyRoutes);
+
+app.get('/api/survey/ip', (req, res) => {
+	const ip = 
+		req.headers['cf-connecting-ip'] ||
+		req.headers['x-real-ip'] ||
+		req.headers['x-forwarded-for'] ||
+		req.socket.remoteAddress || '';
+	return res.json({
+		ip
+	})
+});
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
