@@ -1,9 +1,10 @@
 const express = require('express');
 const app = express();
-// const port = 3000;
 const mongoose = require('mongoose');
+const path = require('path');
 
 const surveyRoutes = require('./routes/survey');
+const titleRoutes = require('./routes/title');
 
 let port = 3000;
 
@@ -22,6 +23,8 @@ mongoose.connect('mongodb+srv://new-user:' + process.env.MONGO_ATLAS_PW + '@clus
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use('/', express.static(path.join(__dirname, 'angular')));
+
 app.use((req, res, next) => {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-Width, Content-Type, Accept, Authorization');
@@ -29,9 +32,13 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.use('/api/title', titleRoutes);
 app.use('/api/survey', surveyRoutes);
+app.use((req, res, next) => {
+	res.sendFile(path.join(__dirname, 'angular', 'index.html'));
+});
 
-app.get('/api/survey/ip', (req, res) => {
+/* app.get('/api/survey/ip', (req, res) => {
 	const ip = 
 		req.headers['cf-connecting-ip'] ||
 		req.headers['x-real-ip'] ||
@@ -40,7 +47,7 @@ app.get('/api/survey/ip', (req, res) => {
 	return res.json({
 		ip
 	})
-});
+}); */
 
 app.listen(port, () => {
 	console.log(`Example app listening at http://localhost:${port}`);
