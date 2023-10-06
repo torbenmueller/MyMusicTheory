@@ -11,45 +11,66 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class SurveyService {
   ip: string = '';
-  private title: any = {};
-  private titleUpdated = new Subject();
+  // result: any[] = [];
 
-  constructor(private http: HttpClient, private toastr: ToastrService) {}
+  private result = new Subject<{result: any[]}>();
+  private count = new Subject<{count: number}>();
 
-  getTitle() {
-    this.http
-      .get<{ message: string; title: any }>(BACKEND_URL + '/title')
-      .subscribe((data) => {
-        this.title = data.title;
-        this.titleUpdated.next(this.title);
-      });
+  constructor(
+    private http: HttpClient, private toastr: ToastrService
+  ) {}
+
+  getSurvey() {
+    this.http.get<{ result: any[] }>(BACKEND_URL + '/survey/results').subscribe(data => {
+      //this.result = data.result;
+      this.result.next(data);
+      this.getCount();
+    });
   }
 
-  getTitleUpdateListener() {
-    return this.titleUpdated.asObservable();
+  getSurveyUpdateListener() {
+    return this.result.asObservable();
   }
 
-  /* getIP() {
-		this.http.get<{ip: any}>(BACKEND_URL + '/ip')
-			.subscribe((data) => {
-				this.ip = data.ip;
-        console.log("IP", this.ip);
-			});
-	} */
+  getCount() {
+    this.http.get<{ count: number }>(BACKEND_URL + '/survey/count').subscribe(data => {
+      this.count.next(data);
+    });
+  }
+
+  getCountUpdateListener() {
+    return this.count.asObservable();
+  }
+
+  getIP() {
+    this.http.get<{ ip: any }>(BACKEND_URL + '/survey/ip').subscribe(data => {
+      this.ip = data.ip;
+    });
+  }
 
   saveSurvey(survey: string[]) {
     const post: object = {
       survey: survey,
+      ip: this.ip
     };
     this.http
       .post<{ message: string }>(BACKEND_URL + '/survey', post)
-      .subscribe((responseData) => {
-        // console.log(responseData.message);
-        this.showSuccess();
+      .subscribe({
+        next: response => {
+          this.showSuccess();
+          this.getSurvey();
+        },
+        error: error => {
+          this.showError();
+        }
       });
   }
 
   showSuccess() {
-    this.toastr.success('The survey was sent successfully!');
+    this.toastr.success('The survey was sent successfully. Thanks for your participation!');
+  }
+
+  showError() {
+    this.toastr.error('You have already taken the survey.');
   }
 }

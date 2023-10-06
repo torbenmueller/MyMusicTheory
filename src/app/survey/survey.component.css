@@ -30,3 +30,15 @@ p {
 .hint {
 	font-size: 1rem;
 }
+
+.p-10-16 {
+	padding: 10px 16px;
+}
+
+.p-17-16 {
+	padding: 17px 16px;
+}
+
+.fs-1rem {
+	font-size: 1rem !important;
+}

@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 })
 export class SurveyComponent implements OnInit {
   checkCounter: number = 0;
+
   categories: Category = {
     notation: 'Notation',
     rhythmAndMeter: 'Rhythm and meter',
@@ -19,22 +20,49 @@ export class SurveyComponent implements OnInit {
     intervals: 'Intervals',
     chords: 'Chords',
     chordProgressions: 'Chord progressions',
-    modulation: 'Modulation',
+    modulation: 'Modulation'
   };
-  survey: string[] = [];
 
-  title: any = {};
-  private titleSub: Subscription;
+  objectValues = Object.values;
+
+  survey: string[] = [];
+  result: any[] = [];
+  count: number = 0;
+  sortedDataWithPercentage: any[] = [];
+
+  private surveySub: Subscription;
+  private countSub: Subscription;
 
   constructor(private surveyService: SurveyService, private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.surveyService.getTitle();
-    this.titleSub = this.surveyService
-      .getTitleUpdateListener()
-      .subscribe((title: any) => {
-        this.title = title;
+    this.surveyService.getIP();
+    this.surveyService.getSurvey();
+    this.surveySub = this.surveyService
+      .getSurveyUpdateListener()
+      .subscribe((data: {result: any[]}) => {
+        this.result = data.result;
+        console.log("this.result", this.result);
+        this.calculatePercentage();
       });
+    this.countSub = this.surveyService
+      .getCountUpdateListener()
+      .subscribe((data: {count: number}) => {
+        this.count = data.count;
+      });
+  }
+
+  calculatePercentage() {
+    const maxCount = this.result.reduce((max, obj) => obj.count > max ? obj.count : max, this.result[0].count);
+    const dataWithPercentage = this.result.map(obj => {
+      return {
+        category: obj._id,
+        count: obj.count,
+        percentage: Math.round((obj.count / maxCount) * 100)
+      }
+    });
+    this.sortedDataWithPercentage = dataWithPercentage.sort((a, b) => a.category.localeCompare(b.category));
+    console.log(this.sortedDataWithPercentage);
   }
 
   check(id: string) {

@@ -3,7 +3,7 @@
 	the wishes of our users, we make a small survey here in advance. The data is collected completely anonymously, no
 	information about the user is stored.</p>
 <hr>
-<h2>{{title.title}}</h2>
+<h2>Survey</h2>
 <div class="row">
 	<div class="col-6">
 		<div class="card">
@@ -11,47 +11,7 @@
 				Which themes are particularly important to you?
 			</div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="notation" (click)="check('notation')">
-						<label class="form-check-label" for="notation">
-							Notation
-						</label>
-					</div>
-				</li>
-				<li class="list-group-item">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="rhythmAndMeter" (click)="check('rhythmAndMeter')">
-						<label class="form-check-label" for="rhythmAndMeter">
-							Rhythm and meter
-						</label>
-					</div>
-				</li>
-				<li class="list-group-item">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="scalesAndKeySignatures" (click)="check('scalesAndKeySignatures')">
-						<label class="form-check-label" for="scalesAndKeySignatures">
-							Scales and key signatures
-						</label>
-					</div>
-				</li>
-				<li class="list-group-item">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="intervals" (click)="check('intervals')">
-						<label class="form-check-label" for="intervals">
-							Intervals
-						</label>
-					</div>
-				</li>
-				<li class="list-group-item">
-					<div class="form-check">
-						<input class="form-check-input" type="checkbox" value="" id="chords" (click)="check('chords')">
-						<label class="form-check-label" for="chords">
-							Chords
-						</label>
-					</div>
-				</li>
-				<li class="list-group-item">
+				<li class="list-group-item p-17-16">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" value="" id="chordProgressions" (click)="check('chordProgressions')">
 						<label class="form-check-label" for="chordProgressions">
@@ -59,7 +19,23 @@
 						</label>
 					</div>
 				</li>
-				<li class="list-group-item">
+				<li class="list-group-item p-17-16">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="chords" (click)="check('chords')">
+						<label class="form-check-label" for="chords">
+							Chords
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item p-17-16">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="intervals" (click)="check('intervals')">
+						<label class="form-check-label" for="intervals">
+							Intervals
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item p-17-16">
 					<div class="form-check">
 						<input class="form-check-input" type="checkbox" value="" id="modulation" (click)="check('modulation')">
 						<label class="form-check-label" for="modulation">
@@ -67,23 +43,52 @@
 						</label>
 					</div>
 				</li>
+				<li class="list-group-item p-17-16">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="notation" (click)="check('notation')">
+						<label class="form-check-label" for="notation">
+							Notation
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item p-17-16">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="rhythmAndMeter" (click)="check('rhythmAndMeter')">
+						<label class="form-check-label" for="rhythmAndMeter">
+							Rhythm and meter
+						</label>
+					</div>
+				</li>
+				<li class="list-group-item p-17-16">
+					<div class="form-check">
+						<input class="form-check-input" type="checkbox" value="" id="scalesAndKeySignatures" (click)="check('scalesAndKeySignatures')">
+						<label class="form-check-label" for="scalesAndKeySignatures">
+							Scales and key signatures
+						</label>
+					</div>
+				</li>
 			</ul>
 		</div>
-		<p class="hint">Choose up to three topics.</p>
+		<p class="hint inline-block">Choose up to three topics.</p>
 		<button type="button" class="btn btn-success float-end mt-2" [disabled]="checkCounter < 1" (click)="submitSurvey()">Submit</button>
 	</div>
 	<div class="col-6">
 		<div class="card">
 			<div class="card-header results">
-				Results
+				<div class="flex-container">
+					Results
+					<p class="margin-0"><span class="bold">{{count}}</span> Participants</p>
+				</div>
 			</div>
-			<div class="card-body">
-				This is some text within a card body.
-			</div>
+			<ul class="list-group list-group-flush">
+				<li class="list-group-item p-10-16" *ngFor="let item of sortedDataWithPercentage">
+					<div class="flex-container">
+						<span class="fs-1rem">{{item.category}}</span>
+						<span class="fs-1rem bold">{{item.count}}</span>
+					</div>
+					<app-progress-bar [value]="item.percentage" [count]="item.count"></app-progress-bar>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
-<!-- <hr>
-<h2>Results</h2>
-<div class="row">
-</div> -->

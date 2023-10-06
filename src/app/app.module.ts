@@ -9,13 +9,15 @@ import { FooterComponent } from './footer/footer.component';
 import { SurveyComponent } from './survey/survey.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
+import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    SurveyComponent
+    SurveyComponent,
+    ProgressBarComponent
   ],
   imports: [
     BrowserModule,
