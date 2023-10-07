@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Category } from '../interfaces/category';
 import { SurveyService } from '../services/survey.service';
-import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
 import * as confetti from 'canvas-confetti';
@@ -24,8 +23,6 @@ export class SurveyComponent implements OnInit {
     modulation: 'Modulation'
   };
 
-  objectValues = Object.values;
-
   survey: string[] = [];
   result: any[] = [];
   count: number = 0;
@@ -37,7 +34,6 @@ export class SurveyComponent implements OnInit {
 
   constructor(
     private surveyService: SurveyService,
-    private http: HttpClient,
     private renderer2: Renderer2,
     private elementRef: ElementRef
   ) {}
@@ -74,7 +70,6 @@ export class SurveyComponent implements OnInit {
   }
 
   check(id: string) {
-    this.getPreviousValues();
     const checkbox = document.getElementById(id) as HTMLInputElement | null;
     if (checkbox?.checked) {
       if (this.checkCounter < 3) {
@@ -90,6 +85,7 @@ export class SurveyComponent implements OnInit {
   }
 
   submitSurvey() {
+    this.getPreviousValues();
     this.surveyService.saveSurvey(this.survey);
     this.deselectAllCheckboxes();
   }

@@ -11,7 +11,6 @@ const BACKEND_URL = environment.apiUrl;
 })
 export class SurveyService {
   ip: string = '';
-  // result: any[] = [];
 
   private result = new Subject<{result: any[]}>();
   private count = new Subject<{count: number}>();
@@ -24,7 +23,6 @@ export class SurveyService {
 
   getSurvey() {
     this.http.get<{ result: any[] }>(BACKEND_URL + '/survey/results').subscribe(data => {
-      //this.result = data.result;
       this.result.next(data);
       this.getCount();
     });

@@ -9,11 +9,8 @@ export class ProgressBarComponent implements OnInit {
   @ViewChild('progressBar') progressBar: ElementRef;
 
   @Input() public value = 0;
-  @Input() public count = 0;
   @Input() public max = 100;
-  @Input() public index;
   @Input() public previousValue;
-  initValue: any = 0;
 
   constructor() {}
 
@@ -25,7 +22,7 @@ export class ProgressBarComponent implements OnInit {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            this.animateProgressBar(this.index, this.value);
+            this.animateProgressBar();
             observer.disconnect();
           }
         });
@@ -35,10 +32,7 @@ export class ProgressBarComponent implements OnInit {
     observer.observe(this.progressBar.nativeElement);
   }
 
-  animateProgressBar(index, value) {
-    // this.initValue = this.value;
+  animateProgressBar() {
     this.previousValue = this.value;
-    // if (!!document.getElementsByTagName('progress')[index])
-    // document.getElementsByTagName('progress')[index].value = value;
   }
 }

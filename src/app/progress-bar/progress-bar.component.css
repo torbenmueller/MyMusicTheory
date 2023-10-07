@@ -5,19 +5,11 @@
 	position: relative;
 }
 
-small {
-	position: absolute;
-	left: 50%;
-	right: 50%;
-	color: #fff;
-	width: 50%;
-}
-
 progress {
 	width: 100%;
 	height: 16px;
 	background-color: #fff;
-	transition: width 1s !important;
+	transition: width 1s ease-out;
 }
 
 progress[value]::-webkit-progress-bar,
@@ -31,19 +23,5 @@ progress[value]::-webkit-progress-bar {
 
 progress[value]::-webkit-progress-value {
 	background-color: #198754;
-	transition: width 1s !important;
+	transition: width 1s ease-out;
 }
-
-/* progress {
-	border-radius: 20px;
-}
-progress::-webkit-progress-bar {
-	border-radius: 20px;
-}
-progress::-webkit-progress-value {
-	transition: width 1.5s ease-in-out;
-	border-radius: 20px;
-}
-progress::-moz-progress-bar {
-	border-radius: 20px;
-} */
