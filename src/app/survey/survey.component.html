@@ -5,7 +5,7 @@
 <hr>
 <h2>Survey</h2>
 <div class="row">
-	<div class="col-6">
+	<div class="col-md-6">
 		<div class="card">
 			<div class="card-header survey">
 				Which themes are particularly important to you?
@@ -70,9 +70,9 @@
 			</ul>
 		</div>
 		<p class="hint inline-block">Choose up to three topics.</p>
-		<button type="button" class="btn btn-success float-end mt-2" [disabled]="checkCounter < 1" (click)="submitSurvey()">Submit</button>
+		<button type="button" class="btn btn-success float-end mt-2 mb-3" [disabled]="checkCounter < 1" (click)="submitSurvey()">Submit</button>
 	</div>
-	<div class="col-6">
+	<div class="col-md-6">
 		<div class="card">
 			<div class="card-header results">
 				<div class="flex-container">
@@ -81,12 +81,15 @@
 				</div>
 			</div>
 			<ul class="list-group list-group-flush">
-				<li class="list-group-item p-10-16" *ngFor="let item of sortedDataWithPercentage">
+				<li class="list-group-item p-10-16" *ngFor="let item of sortedDataWithPercentage; let i = index">
 					<div class="flex-container">
-						<span class="fs-1rem">{{item.category}}</span>
-						<span class="fs-1rem bold">{{item.count}}</span>
+						<span class="fs-1rem bold">{{item.category}}</span>
+						<div>
+							<span class="fs-1rem bold">{{item.count}}</span>
+							<span class="fs-1rem"> Votes</span>
+						</div>
 					</div>
-					<app-progress-bar [value]="item.percentage" [count]="item.count"></app-progress-bar>
+					<app-progress-bar [value]="item.percentage" [count]="item.count" [previousValue]="previousValues[i]" [index]="i"></app-progress-bar>
 				</li>
 			</ul>
 		</div>

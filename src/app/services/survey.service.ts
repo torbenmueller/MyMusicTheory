@@ -15,9 +15,11 @@ export class SurveyService {
 
   private result = new Subject<{result: any[]}>();
   private count = new Subject<{count: number}>();
+  private confettiSubject = new Subject<void>();
 
   constructor(
-    private http: HttpClient, private toastr: ToastrService
+    private http: HttpClient,
+    private toastr: ToastrService
   ) {}
 
   getSurvey() {
@@ -59,11 +61,20 @@ export class SurveyService {
         next: response => {
           this.showSuccess();
           this.getSurvey();
+          this.getConfetti();
         },
         error: error => {
           this.showError();
         }
       });
+  }
+
+  getConfetti() {
+    this.confettiSubject.next();
+  }
+
+  getConfettiUpdateListener() {
+    return this.confettiSubject.asObservable();
   }
 
   showSuccess() {
@@ -73,4 +84,5 @@ export class SurveyService {
   showError() {
     this.toastr.error('You have already taken the survey.');
   }
+
 }

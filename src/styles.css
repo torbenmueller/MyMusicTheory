@@ -9,8 +9,17 @@
 
 .bold {
 	font-weight: bold;
+	color: #616161;
 }
 
 .inline-block {
 	display: inline-block;
+}
+
+canvas {
+	height: 50%;
+	width: 50%;
+	position: absolute;
+	top: 0;
+	left: 50%;
 }

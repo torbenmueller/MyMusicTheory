@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { Category } from '../interfaces/category';
 import { SurveyService } from '../services/survey.service';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 
+import * as confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-survey',
@@ -29,11 +30,17 @@ export class SurveyComponent implements OnInit {
   result: any[] = [];
   count: number = 0;
   sortedDataWithPercentage: any[] = [];
+  previousValues: number[] = new Array(7).fill(0);
 
   private surveySub: Subscription;
   private countSub: Subscription;
 
-  constructor(private surveyService: SurveyService, private http: HttpClient) {}
+  constructor(
+    private surveyService: SurveyService,
+    private http: HttpClient,
+    private renderer2: Renderer2,
+    private elementRef: ElementRef
+  ) {}
 
   ngOnInit(): void {
     this.surveyService.getIP();
@@ -42,7 +49,6 @@ export class SurveyComponent implements OnInit {
       .getSurveyUpdateListener()
       .subscribe((data: {result: any[]}) => {
         this.result = data.result;
-        console.log("this.result", this.result);
         this.calculatePercentage();
       });
     this.countSub = this.surveyService
@@ -50,6 +56,9 @@ export class SurveyComponent implements OnInit {
       .subscribe((data: {count: number}) => {
         this.count = data.count;
       });
+    this.surveyService.getConfettiUpdateListener().subscribe(() => {
+      this.surprise();
+    });
   }
 
   calculatePercentage() {
@@ -62,10 +71,10 @@ export class SurveyComponent implements OnInit {
       }
     });
     this.sortedDataWithPercentage = dataWithPercentage.sort((a, b) => a.category.localeCompare(b.category));
-    console.log(this.sortedDataWithPercentage);
   }
 
   check(id: string) {
+    this.getPreviousValues();
     const checkbox = document.getElementById(id) as HTMLInputElement | null;
     if (checkbox?.checked) {
       if (this.checkCounter < 3) {
@@ -85,6 +94,16 @@ export class SurveyComponent implements OnInit {
     this.deselectAllCheckboxes();
   }
 
+  public surprise(): void {
+    const canvas = this.renderer2.createElement('canvas');
+    this.renderer2.appendChild(this.elementRef.nativeElement, canvas);
+    const myConfetti = confetti.create(canvas, { resize: true });
+    myConfetti();
+    setTimeout(() => {
+      this.renderer2.removeChild(this.elementRef.nativeElement, canvas);
+    }, 3000);
+  }
+
   deselectAllCheckboxes() {
     for (let i = 0; i < this.survey.length; i++) {
       let checkboxId: string =
@@ -97,4 +116,11 @@ export class SurveyComponent implements OnInit {
     this.checkCounter = 0;
     this.survey = [];
   }
+
+  getPreviousValues() {
+		this.previousValues = [];
+		this.sortedDataWithPercentage.forEach(item => {
+			this.previousValues.push(item.percentage);
+		});
+	}
 }
