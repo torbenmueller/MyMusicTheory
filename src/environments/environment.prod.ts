@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: "https://protected-harbor-57908-faf5db18cf1e.herokuapp.com/api"
+  apiUrl: "https://my-music-theory-e2f141c7775c.herokuapp.com/api"
 };
