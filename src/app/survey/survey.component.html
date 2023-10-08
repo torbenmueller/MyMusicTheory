@@ -77,7 +77,7 @@
 			<div class="card-header results">
 				<div class="flex-container">
 					Results
-					<p class="margin-0"><span class="bold">{{count}}</span> Participants</p>
+					<p class="margin-0"><span class="bold">{{count}}</span>{{count !== 1 ? ' Participants' : ' Participant'}}</p>
 				</div>
 			</div>
 			<ul class="list-group list-group-flush">
@@ -86,7 +86,7 @@
 						<span class="fs-1rem bold">{{item.category}}</span>
 						<div>
 							<span class="fs-1rem bold">{{item.count}}</span>
-							<span class="fs-1rem"> Votes</span>
+							<span class="fs-1rem">{{item.count !== 1 ? ' Votes' : ' Vote'}}</span>
 						</div>
 					</div>
 					<app-progress-bar [value]="item.percentage" [previousValue]="previousValues[i]"></app-progress-bar>

@@ -14,13 +14,13 @@ export class SurveyComponent implements OnInit {
   checkCounter: number = 0;
 
   categories: Category = {
+    chordProgressions: 'Chord progressions',
+    chords: 'Chords',
+    intervals: 'Intervals',
+    modulation: 'Modulation',
     notation: 'Notation',
     rhythmAndMeter: 'Rhythm and meter',
     scalesAndKeySignatures: 'Scales and key signatures',
-    intervals: 'Intervals',
-    chords: 'Chords',
-    chordProgressions: 'Chord progressions',
-    modulation: 'Modulation'
   };
 
   survey: string[] = [];
@@ -119,4 +119,5 @@ export class SurveyComponent implements OnInit {
 			this.previousValues.push(item.percentage);
 		});
 	}
+
 }

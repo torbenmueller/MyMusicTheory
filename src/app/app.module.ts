@@ -10,6 +10,9 @@ import { SurveyComponent } from './survey/survey.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
 import { ProgressBarComponent } from './progress-bar/progress-bar.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
+import { ImprintComponent } from './imprint/imprint.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +20,10 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
     NavbarComponent,
     FooterComponent,
     SurveyComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    PrivacyPolicyComponent,
+    TermsAndConditionsComponent,
+    ImprintComponent
   ],
   imports: [
     BrowserModule,
