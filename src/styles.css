@@ -23,3 +23,47 @@ canvas {
 	top: 0;
 	left: 50%;
 }
+
+body h1 {
+	font-size: 2rem;
+	color: #616161;
+}
+
+body h2 {
+	font-size: 1.5rem;
+	color: #198754;
+}
+
+body p {
+	font-size: 1.2rem;
+	color: #616161;
+}
+
+body .card-header {
+	font-size: 1.3rem;
+	color: #616161;
+}
+
+body .survey {
+	background-color: #E6FFF3;
+}
+
+body .results {
+	background-color: #eee;
+}
+
+.hint {
+	font-size: 1rem;
+}
+
+.p-10-16 {
+	padding: 10px 16px;
+}
+
+.p-17-16 {
+	padding: 17px 16px;
+}
+
+.fs-1rem {
+	font-size: 1rem !important;
+}

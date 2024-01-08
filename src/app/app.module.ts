@@ -13,6 +13,7 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { ImprintComponent } from './imprint/imprint.component';
+import { ComposingTechniquesComponent } from './composing-techniques/composing-techniques.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ImprintComponent } from './imprint/imprint.component';
     ProgressBarComponent,
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
-    ImprintComponent
+    ImprintComponent,
+    ComposingTechniquesComponent
   ],
   imports: [
     BrowserModule,
