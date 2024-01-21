@@ -10,8 +10,25 @@
 				<li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
 					<a class="nav-link" routerLink="/">Survey</a>
 				</li>
-				<li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+				<!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
 					<a class="nav-link" routerLink="/composing-techniques">Composing Techniques</a>
+				</li> -->
+				<li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Composing Techniques
+					</a>
+					<ul class="dropdown-menu">
+						<li class="nav-item">
+							<a class="dropdown-item" routerLink="/sentence-form">Sentence Form</a>
+						</li>
+						<li class="nav-item">
+							<a class="dropdown-item" routerLink="/period-form">Period Form</a>
+						</li>
+						<!-- <li>
+							<hr class="dropdown-divider">
+						</li>
+						<li><a class="dropdown-item" href="#">Something else here</a></li> -->
+					</ul>
 				</li>
 			</ul>
 		</div>

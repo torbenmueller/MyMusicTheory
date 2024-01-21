@@ -5,6 +5,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { ImprintComponent } from './imprint/imprint.component';
 import { ComposingTechniquesComponent } from './composing-techniques/composing-techniques.component';
+import { SentenceFormComponent } from './sentence-form/sentence-form.component';
+import { PeriodFormComponent } from './period-form/period-form.component';
 
 const routes: Routes = [
   { path: '', component: SurveyComponent },
@@ -12,6 +14,8 @@ const routes: Routes = [
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'composing-techniques', component: ComposingTechniquesComponent },
+  { path: 'sentence-form', component: SentenceFormComponent },
+  { path: 'period-form', component: PeriodFormComponent },
 ];
 
 @NgModule({

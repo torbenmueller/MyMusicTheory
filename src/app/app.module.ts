@@ -14,6 +14,8 @@ import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.componen
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { ImprintComponent } from './imprint/imprint.component';
 import { ComposingTechniquesComponent } from './composing-techniques/composing-techniques.component';
+import { SentenceFormComponent } from './sentence-form/sentence-form.component';
+import { PeriodFormComponent } from './period-form/period-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { ComposingTechniquesComponent } from './composing-techniques/composing-t
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
     ImprintComponent,
-    ComposingTechniquesComponent
+    ComposingTechniquesComponent,
+    SentenceFormComponent,
+    PeriodFormComponent
   ],
   imports: [
     BrowserModule,
