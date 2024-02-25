@@ -9,12 +9,12 @@ import { SentenceFormComponent } from './sentence-form/sentence-form.component';
 import { PeriodFormComponent } from './period-form/period-form.component';
 
 const routes: Routes = [
-  { path: '', component: SurveyComponent },
+  { path: '', component: SentenceFormComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'terms-and-conditions', component: TermsAndConditionsComponent },
   { path: 'imprint', component: ImprintComponent },
   { path: 'composing-techniques', component: ComposingTechniquesComponent },
-  { path: 'sentence-form', component: SentenceFormComponent },
+  { path: 'survey', component: SurveyComponent },
   { path: 'period-form', component: PeriodFormComponent },
 ];
 

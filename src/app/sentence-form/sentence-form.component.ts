@@ -153,7 +153,7 @@ export class SentenceFormComponent implements OnInit {
     const voice4 = new Voice({ num_beats: 4, beat_value: 4 });
     voice4.addTickables(notes4);
 
-    // Format and justify the notes to 400 pixels.
+    // Format and justify the notes
     new Formatter().joinVoices([voice]).format([voice], 200);
     new Formatter().joinVoices([voice2]).format([voice2], 324);
     new Formatter().joinVoices([voice3]).format([voice3], 324);
@@ -277,7 +277,7 @@ export class SentenceFormComponent implements OnInit {
     const voice8 = new Voice({ num_beats: 4, beat_value: 4 });
     voice8.addTickables(notes8);
 
-    // Format and justify the notes to 400 pixels.
+    // Format and justify the notes
     new Formatter().joinVoices([voice5]).format([voice5], 200);
     new Formatter().joinVoices([voice6]).format([voice6], 324);
     new Formatter().joinVoices([voice7]).format([voice7], 324);
@@ -287,7 +287,6 @@ export class SentenceFormComponent implements OnInit {
     const beams3 = Beam.generateBeams(notes5.slice(1, 4));
     const beams4 = Beam.generateBeams(notes6.slice(1, 4));
     const beams5 = new Beam(notes7.slice(1, 5));
-    // const beams6 = Beam.generateBeams(notes8.slice(0, 3));
 
     // Add a double barline at the end of the stave
     stave8.setEndBarType(Barline.type.END);
@@ -302,7 +301,6 @@ export class SentenceFormComponent implements OnInit {
     beams3.forEach(beam => beam.setContext(context2).draw());
     beams4.forEach(beam => beam.setContext(context2).draw());
     beams5.setContext(context2).draw();
-    // beams6.forEach(beam => beam.setContext(context2).draw());
 
     triplet3.setContext(stave5.getContext()).draw();
     triplet4.setContext(stave6.getContext()).draw();
