@@ -87,6 +87,14 @@ body .results {
 	text-align: center;
 }
 
+.small {
+	font-size: 0.5rem;
+}
+
+.right {
+	text-align: right;
+}
+
 .black {
 	color: #000;
 }
