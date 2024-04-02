@@ -5,14 +5,12 @@
 			aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
-		<div class="collapse navbar-collapse" id="navbarNav">
+		<div class="collapse navbar-collapse space-between" id="navbarNav">
 			<ul class="navbar-nav">
-				<!-- <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
-					<a class="nav-link" routerLink="/composing-techniques">Composing Techniques</a>
-				</li> -->
+				<!-- <li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}"> -->
 				<li class="nav-item dropdown" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Composing Techniques
+						Forms
 					</a>
 					<ul class="dropdown-menu">
 						<li class="nav-item">
@@ -24,17 +22,18 @@
 						<li class="nav-item">
 							<a class="dropdown-item disabled" aria-disabled="true">ABA Form</a>
 						</li>
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Melody
+					</a>
+					<ul class="dropdown-menu">
 						<li class="nav-item">
 							<a class="dropdown-item disabled" aria-disabled="true">Melody Checklist</a>
 						</li>
 						<li class="nav-item">
-							<a class="dropdown-item disabled" aria-disabled="true">Chromatic Mediants</a>
-						</li>
-						<li class="nav-item">
-							<a class="dropdown-item disabled" aria-disabled="true">Secondary Dominants</a>
-						</li>
-						<li class="nav-item">
-							<a class="dropdown-item disabled" aria-disabled="true">Musical Motive</a>
+							<a class="dropdown-item disabled" aria-disabled="true">Musical Motif</a>
 						</li>
 						<li class="nav-item">
 							<a class="dropdown-item disabled" aria-disabled="true">Musical Phrase</a>
@@ -42,14 +41,28 @@
 						<li class="nav-item">
 							<a class="dropdown-item disabled" aria-disabled="true">Memorable Themes</a>
 						</li>
-						<!-- <li>
-							<hr class="dropdown-divider">
+					</ul>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Harmony
+					</a>
+					<ul class="dropdown-menu">
+						<li class="nav-item">
+							<a class="dropdown-item disabled" aria-disabled="true">Chromatic Mediants</a>
 						</li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li> -->
+						<li class="nav-item">
+							<a class="dropdown-item disabled" aria-disabled="true">Secondary Dominants</a>
+						</li>
 					</ul>
 				</li>
 				<li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
 					<a class="nav-link" routerLink="/survey">Survey</a>
+				</li>
+			</ul>
+			<ul class="navbar-nav">
+				<li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact:true}">
+					<a class="nav-link" routerLink="/about">About</a>
 				</li>
 			</ul>
 		</div>

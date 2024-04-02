@@ -13,9 +13,9 @@ import { ProgressBarComponent } from './progress-bar/progress-bar.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './terms-and-conditions/terms-and-conditions.component';
 import { ImprintComponent } from './imprint/imprint.component';
-import { ComposingTechniquesComponent } from './composing-techniques/composing-techniques.component';
 import { SentenceFormComponent } from './sentence-form/sentence-form.component';
 import { PeriodFormComponent } from './period-form/period-form.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { PeriodFormComponent } from './period-form/period-form.component';
     PrivacyPolicyComponent,
     TermsAndConditionsComponent,
     ImprintComponent,
-    ComposingTechniquesComponent,
     SentenceFormComponent,
-    PeriodFormComponent
+    PeriodFormComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
