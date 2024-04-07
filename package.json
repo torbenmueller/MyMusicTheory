@@ -18,6 +18,7 @@
     "@angular/platform-browser": "^14.3.0",
     "@angular/platform-browser-dynamic": "^14.3.0",
     "@angular/router": "^14.3.0",
+    "@emailjs/browser": "^4.3.3",
     "bootstrap": "^5.3.2",
     "canvas-confetti": "^1.9.0",
     "ngx-toastr": "^15.2.2",

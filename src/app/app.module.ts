@@ -16,6 +16,9 @@ import { ImprintComponent } from './imprint/imprint.component';
 import { SentenceFormComponent } from './sentence-form/sentence-form.component';
 import { PeriodFormComponent } from './period-form/period-form.component';
 import { AboutComponent } from './about/about.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactComponent } from './contact/contact.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -29,14 +32,17 @@ import { AboutComponent } from './about/about.component';
     ImprintComponent,
     SentenceFormComponent,
     PeriodFormComponent,
-    AboutComponent
+    AboutComponent,
+    NotFoundComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

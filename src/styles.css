@@ -1,6 +1,32 @@
+:root {
+	--dark-grey: #616161;
+	--medium: 1.2rem;
+}
+
+body a {
+	text-decoration: underline;
+	color: var(--bs-body-color);
+	cursor: pointer;
+	font-size: var(--medium);
+}
+
+.center {
+	text-align: center;
+}
+
 .flex-container {
 	display: flex;
 	justify-content: space-between;
+}
+
+.flex-center-v-h {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.full-height {
+	height: calc(100vh - 16.5rem);
 }
 
 .margin-0 {
@@ -9,7 +35,7 @@
 
 .bold {
 	font-weight: bold;
-	color: #616161;
+	color: var(--bs-body-color);
 }
 
 .inline-block {
@@ -26,22 +52,22 @@ canvas {
 
 body h1 {
 	font-size: 2rem;
-	color: #616161;
+	color: var(--bs-body-color);
 }
 
 body h2 {
 	font-size: 1.5rem;
-	color: #616161;
+	color: var(--bs-body-color);
 }
 
 body p {
-	font-size: 1.2rem;
-	color: #616161;
+	font-size: var(--medium);
+	color: var(--bs-body-color);
 }
 
 body .card-header {
 	font-size: 1.3rem;
-	color: #616161;
+	color: var(--bs-body-color);
 }
 
 body .survey {
@@ -84,10 +110,6 @@ body .results {
 	background-color: #C8E6C9;
 }
 
-.explanation {
-	text-align: center;
-}
-
 .small {
 	font-size: 0.5rem;
 }
@@ -115,4 +137,22 @@ body .results {
 	width: 218px;
 	float: left;
 	margin: 8px 20px 0 0;
+}
+
+.score-container {
+	width: 1298px;
+	overflow: hidden;
+}
+
+.score-headline {
+	display: inline-block;
+	width: 649px;
+	text-align: center;
+}
+
+/* @media screen and (max-width: 768px) { */
+@media screen and (max-width: 1400px) {
+	.scroll-x {
+		overflow-x: scroll;
+	}
 }
